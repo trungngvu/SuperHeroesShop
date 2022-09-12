@@ -1,9 +1,10 @@
 import React from 'react';
+import {Image} from "react-native";
 import './profile.scss';
 
 const User = ({ background, avatar, name, id }) => {
     return (
-        <img className="background_cover" src={background}>
+        <Image className="background_cover" src={background}>
             <div className="box user_box">
                 <img src={avatar} alt="User avatar" className="user_avatar" />
                 <div className="user_detail">
@@ -12,7 +13,7 @@ const User = ({ background, avatar, name, id }) => {
                     <button className="edit_profile">Edit my profile</button>
                 </div>
             </div>
-        </img>
+        </Image>
     );
 };
 
