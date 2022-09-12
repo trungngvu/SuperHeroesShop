@@ -1,3 +1,4 @@
+import styles from './footer_module.scss';
 function Footer() {
     return (
         <div class="footer">

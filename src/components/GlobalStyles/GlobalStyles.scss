@@ -6,12 +6,15 @@
     --default_layout_header_width: 1150px;
 }
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
 }
-html {
+html { 
     font-size: 62.5%;
+    line-height: 1.6 rem;
+    font-family: 'Roboto', sans-serif;
 }
 body {
     font-family: 'IBM Plex Sans Condensed', sans-serif;
