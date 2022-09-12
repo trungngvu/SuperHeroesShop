@@ -1,0 +1,23 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@100;200;300;400;500&family=Inter:wght@200;300;400;500;600&family=Roboto:wght@300;400&display=swap');
+:root {
+    --primary: #fe2c55;
+    --default_layout_header_height: 60px;
+    --default_layout_header_width: 1150px;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    // font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
