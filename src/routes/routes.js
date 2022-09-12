@@ -13,7 +13,6 @@ const publicRoutes = [
   {
     path: "/profile",
     component: Profile,
-    layout: null,
   },
 ];
 const privateRoutes = [];

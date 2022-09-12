@@ -1,39 +1,39 @@
 import styles from './header_module.scss';
 function Header() {
     return (
-        <hearder class="header">
-            <div class="grid">
-                <div class="navbar">
-                    <div class="navbar-logo">
-                        <a href="" class="navbar-logo_link">
+        <header className="header">
+            <div className="grid">
+                <div className="navbar">
+                    <div className="navbar-logo">
+                        <a href="" className="navbar-logo_link">
                             Logo
                         </a>
                     </div>
-                    <ul class="navbar-item-menu">
-                        <li class="navbar-item">
-                            <a href="" class="navber-item_links">
+                    <ul className="navbar-item-menu">
+                        <li className="navbar-item">
+                            <a href="" className="navber-item_links">
                                 News
                             </a>
                         </li>
-                        <li class="navbar-item">
-                            <a href="" class="navber-item_links">
+                        <li className="navbar-item">
+                            <a href="" className="navber-item_links">
                                 Series
                             </a>
                         </li>
-                        <li class="navbar-item">
-                            <a href="" class="navber-item_links">
+                        <li className="navbar-item">
+                            <a href="" className="navber-item_links">
                                 Characters
                             </a>
                         </li>
                     </ul>
-                    <div class="navbar-login">
-                        <a class="navbar-login_button navbar-login_button_signin">Signin</a>
+                    <div className="navbar-login">
+                        <a className="navbar-login_button navbar-login_button_signin">Signin</a>
 
-                        <a class="navbar-login_button navbar-login_button_signup">Signup</a>
+                        <a className="navbar-login_button navbar-login_button_signup">Signup</a>
                     </div>
                 </div>
             </div>
-        </hearder>
+        </header>
     );
 }
 
