@@ -1,0 +1,60 @@
+.app-container {
+    margin: 0 184px;
+}
+.footer {
+    margin-top: 120px;
+    margin-bottom: 90px;
+}
+.footer_app {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.logo_main {
+    padding: 25px 0;
+    text-align: center;
+    width: 235px;
+    height: 65;
+    background-color: #C4C4C4;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.logo_list {
+    margin-top: 22px;
+}
+.logo_list-content {
+    color:#7C7C7C;
+    font-size: 1.15rem;
+    line-height: 1.3rem;
+    font-weight: 550;
+}
+.logo_list-item {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    margin-left: -12px;
+    margin-right: -10px;
+}
+.logo_list-item-icon {
+    padding: 0 12px;
+}
+.logo_list-item-icon > i {
+    color:#7C7C7C;
+    font-size: 3.5rem;
+}
+.list {
+    display: flex;
+    flex-direction: row;
+    margin-right: 140px;
+}
+.list-item {
+    margin-right: 40px;
+}
+.list-item_infor {
+    line-height: 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.list-item_infor1 {
+    font-weight: 600;
+}

@@ -1,35 +1,37 @@
-import styles from './header_module.scss';
+import styles from './header.module.scss';
+import classNames from 'classnames/bind';
+const cx = classNames.bind(styles);
 function Header() {
     return (
-        <header className="header">
-            <div className="grid">
-                <div className="navbar">
-                    <div className="navbar-logo">
-                        <a href="" className="navbar-logo_link">
+        <header className={cx('header')}>
+            <div className={cx('grid')}>
+                <div className={cx('navbar')}>
+                    <div className={cx('navbar-logo')}>
+                        <a href="" className={cx('navbar-logo_link')}>
                             Logo
                         </a>
                     </div>
-                    <ul className="navbar-item-menu">
-                        <li className="navbar-item">
-                            <a href="" className="navber-item_links">
+                    <ul className={cx('navbar-item-menu')}>
+                        <li className={cx('navbar-item')}>
+                            <a href="" className={cx('navber-item_links')}>
                                 News
                             </a>
                         </li>
-                        <li className="navbar-item">
-                            <a href="" className="navber-item_links">
+                        <li className={cx('navbar-item')}>
+                            <a href="" className={cx('navber-item_links')}>
                                 Series
                             </a>
                         </li>
-                        <li className="navbar-item">
-                            <a href="" className="navber-item_links">
+                        <li className={cx('navbar-item')}>
+                            <a href="" className={cx('navber-item_links')}>
                                 Characters
                             </a>
                         </li>
                     </ul>
-                    <div className="navbar-login">
-                        <a className="navbar-login_button navbar-login_button_signin">Signin</a>
+                    <div className={cx('navbar-login')}>
+                        <a className={cx('navbar-login_button', 'navbar-login_button_signin')}>Signin</a>
                         <svg
-                            className="navbar-login_img"
+                            className={cx('navbar-login_img')}
                             width="39"
                             height="39"
                             viewBox="0 0 44 44"
@@ -60,7 +62,7 @@ function Header() {
                                 fill="#C01918"
                             />
                         </svg>
-                        <a className="navbar-login_button navbar-login_button_signup">Signup</a>
+                        <a className={cx('navbar-login_button', 'navbar-login_button_signup')}>Signup</a>
                     </div>
                 </div>
             </div>

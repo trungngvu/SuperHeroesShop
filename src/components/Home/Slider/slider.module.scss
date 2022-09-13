@@ -1,0 +1,126 @@
+.slider{
+    margin-top: 62.2px;
+    position: relative;
+    height: 500px;
+     
+} 
+.slider_img {
+    /* height: 100px; */
+    filter: blur(1px);
+    width: 100%;
+    height: calc(100% - 3px);
+    object-fit: none;
+}
+.cover {
+    position: absolute;
+    top: -2px;
+    height: 100%;
+    width: 100%;
+    background-color: #222222;
+    opacity: 0.85;
+}
+.title {
+    position: absolute;
+    font-size: 3.8rem;
+    color: #fff;
+    top: 48px;
+    left: 100px;
+}
+.content {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #fff;
+    top: 180px;
+    left: 100px;
+    font-weight: 300;
+}
+.search {
+    position: absolute;
+    top: 260px;
+    left: 103px;
+    display: flex;
+    align-items: center;
+}
+.search-input {
+    padding: 11px 0 11px 11px;
+    border-radius: 20px;
+    font-weight: 550;
+    border: none;
+}
+.search_icon {
+    color: #fff;
+    padding: 13px;
+    font-size: 2rem;
+    background-color: red;
+    border-radius: 100%;
+    margin-left: -15px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.memo {
+    position:absolute;
+    top: 350px;
+    left: 100px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 2rem;
+    font-style: italic;
+}
+.conment {
+    position:absolute;
+    top: 420px;
+    left: 100px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.1rem;
+    /* font-style: italic; */
+}
+.slider-poster_img {
+    position: absolute;
+    top: 80px;
+    left: 753px;
+    height: 300px;
+    width: 195px;
+    border-radius: 10px;
+    
+}
+.slider-poster_img2 {
+    transform: rotate(2.5deg);
+    left: 758px;
+    border-radius: 10px;
+}
+.slider-poster_img3 {
+    transform: rotate(5deg);
+    left: 7px;
+    left: 763px;
+    border-radius: 5px;
+}
+.slider-poster_img4 {
+    transform: rotate(7.5deg);
+    left: 768px;
+    border-radius: 5px;
+}
+.slider_infor {
+    position: absolute;
+    top: 135px;
+    left: 1025px;
+    color: #fff;
+}
+.slider_infor-title {
+    font-size: 2.2rem ;
+    font-weight: 500;
+}
+.slider_infor-content {
+    margin-top: 16px;
+    line-height: 15px;
+}
+.slider_infor-button {
+    margin-top: 24px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    padding: 5px 12px;
+    border-radius: 11.5px;
+    cursor: pointer;
+}
