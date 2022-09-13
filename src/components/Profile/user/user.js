@@ -1,19 +1,21 @@
 import React from 'react';
-import { Image } from 'react-native';
-import './profile.scss';
+import styles from './profile.module.scss';
 
 const User = ({ background, avatar, name, id }) => {
+    const av = require('../../../images/profile/teruel.jpg');
+    const bg = require('../../../images/profile/background_teruel.jpg');
     return (
-        <Image className="background_cover" src={background}>
-            <div className="box user_box">
-                <img src={avatar} alt="User avatar" className="user_avatar" />
-                <div className="user_detail">
-                    <div className="user_name">{name}</div>
-                    <div className="user_id">{id}</div>
-                    <button className="edit_profile">Edit my profile</button>
+        <>
+            <img className={styles.background_cover} alt="background" src={bg} />
+            <div className={`${styles.box} ${styles.user_box}`}>
+                <img src={av} alt="User avatar" className={styles.user_avatar} />
+                <div className={styles.user_detail}>
+                    <div className={styles.user_name}>{name}</div>
+                    <div className={styles.user_id}>{id}</div>
+                    <button className={styles.edit_profile}>Edit my profile</button>
                 </div>
             </div>
-        </Image>
+        </>
     );
 };
 

@@ -1,6 +1,6 @@
 import Home from '../page/Home/home';
 import Comics from '../page/Comics/Comics';
-// import Profile from '../page/Profiles/profiles';
+import Profile from '../page/Profiles/profiles';
 const publicRoutes = [
     {
         path: '/',
@@ -10,10 +10,10 @@ const publicRoutes = [
         path: '/comic',
         component: Comics,
     },
-    // {
-    //     path: '/profile',
-    //     component: Profile,
-    // },
+    {
+        path: '/profile',
+        component: Profile,
+    },
 ];
 const privateRoutes = [];
 export { publicRoutes, privateRoutes };
