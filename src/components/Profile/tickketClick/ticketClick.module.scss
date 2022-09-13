@@ -1,0 +1,63 @@
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.ticket_wrapper {
+    width: 80%;
+    border-radius: 15px;
+    background-color: white;
+    opacity: 1;
+    position: relative;
+}
+
+.ticket_title {
+    font-weight: bold;
+    font-size: 150%;
+    padding: 30px;
+    padding-bottom: 10px;
+}
+
+hr {
+    margin: 0 30px;
+}
+
+.ticket_content_title {
+    padding: 30px;
+    font-weight: bold;
+}
+
+.ticket_object {
+    padding: 0 30px;
+    height: 200px;
+}
+
+.ticket_comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ticket_wrapper input {
+    height: 50px;
+}
+.commented {
+    padding: 20px;
+    width: 80%;
+}
+
+.close_button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
