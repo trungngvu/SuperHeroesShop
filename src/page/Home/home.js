@@ -1,5 +1,12 @@
+import Sliders from '../../components/Home/Slider/slider';
+import Container from '../../components/Home/Container/container';
 function Home() {
-  return <h2>Home</h2>;
+    return (
+        <>
+            <Sliders />
+            <Container />
+        </>
+    );
 }
 
 export default Home;
