@@ -22,6 +22,7 @@ table {
     outline: 1px solid #dddddd;
     border-radius: 20px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .table_header {
@@ -51,12 +52,6 @@ td {
     border-radius: 30px;
     border-color: red;
     margin-top: 30px;
-}
-
-.box {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .address_box {
