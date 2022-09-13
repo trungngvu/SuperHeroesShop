@@ -33,15 +33,14 @@ function Profile() {
         {
             Recipient: 'Yoann TERUEL',
             Address: '44 rue Blancherive BAT B, APP 789 BORDECIEL, Skyrim 99999 France',
-            Phone: '+33606060606'
+            Phone: '+33606060606',
         },
         {
             Recipient: 'Yoann TERUEL',
             Address: '44 rue Blancherive BAT B, APP 789 BORDECIEL, Skyrim 99999 France',
-            Phone: '+33606060606'
+            Phone: '+33606060606',
         },
-
-    ])
+    ]);
 
     return (
         <>
