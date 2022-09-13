@@ -3,7 +3,7 @@ import styles from './profile.module.scss';
 
 const User = ({ background, avatar, name, id }) => {
     const av = require('../../../images/profile/teruel.jpg');
-    const bg = require('../../../images/profile/background_teruel.jpg');
+    const bg = require('../../../images/profile/background_teruel.png');
     return (
         <>
             <img className={styles.background_cover} alt="background" src={bg} />
