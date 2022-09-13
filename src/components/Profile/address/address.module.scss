@@ -1,0 +1,87 @@
+.user_order{
+	margin-left: 5%;
+}
+
+.user_address{
+	margin-left: 5%;
+}
+
+
+.title_lg{
+	width: fit-content;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+table{
+	border-spacing: 10px;
+	margin: 0;
+}
+
+.user_order_row{
+	outline: 1px solid #DDDDDD;
+	border-radius: 20px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.table_header{
+	color: #5B5B5B;
+
+}
+
+.superscript {
+font-size: 70%;
+position: relative;
+bottom: 0.4em;
+}
+
+td{
+	padding: 0.7rem 1.5rem;
+}
+
+.see_all{
+	margin-top: 5px;
+	position: absolute;
+	left: 0.8vh;
+	padding: 5px 40px;
+}
+
+.edit_profile{
+	background: red;
+	color:  white;
+	padding: 5px 10px;
+	border-radius: 30px;
+	border-color: red;
+	margin-top: 30px;
+}
+
+.address_box{
+	max-width: 200px;
+	padding: 20px;
+	border-radius: 30px;
+	margin-top: 20px;
+}
+
+.address_name{
+	flex: 4;
+	font-weight: bold;
+}
+
+.info_icon{
+	flex: 1;
+	max-height: 12px;
+	margin-top: 5px;
+}
+
+.address{
+	max-width: 170px;
+	padding: 30px 0;
+}
+
+.address_res{
+	display:flex; 
+	flex-wrap: wrap; 
+	column-gap: 30px;
+}
