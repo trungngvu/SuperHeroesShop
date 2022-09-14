@@ -3,6 +3,7 @@ import User from '../../components/Profile/user/user';
 import Order from '../../components/Profile/order/order';
 import Address from '../../components/Profile/address/address';
 import Ticket from '../../components/Profile/ticket/ticket';
+import TicketClick from '../../components/Profile/tickketClick/ticketClick';
 
 function Profile() {
     const [user, setUser] = useState({
@@ -50,18 +51,26 @@ function Profile() {
             CreateAt: '05/31/22',
         },
         {
-            TicketNo: '1326546',
+            TicketNo: '1326547',
             Object: '31 av.des Timbertines, 75000 Paris',
             CreateAt: '05/31/22',
         },
         {
-            TicketNo: '1326546',
+            TicketNo: '1326548',
             Object: '31 av.des Timbertines, 75000 Paris',
             CreateAt: '05/31/22',
         },
     ]);
 
+<<<<<<< HEAD
     const ticketClickHandler = (index) => {};
+=======
+    const [ticketDetail, setTicketDetail] = useState('');
+
+    const ticketClickHandler = (index) => {
+        setTicketDetail(index);
+    };
+>>>>>>> 672267258e08614087efb23b4ba3c719b15aa12e
 
     return (
         <>
@@ -72,6 +81,7 @@ function Profile() {
                 <Address addresses={addresses} />
                 <Ticket tickets={tickets} onClick={ticketClickHandler} />
             </div>
+            {ticketDetail && <TicketClick ticketDetail={ticketDetail} setTicketDetail={setTicketDetail} />}
         </>
     );
 }

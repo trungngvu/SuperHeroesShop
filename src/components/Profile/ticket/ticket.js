@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './ticket.module.scss';
 
 const ticket = ({ tickets, onClick }) => {
-    const listTicket = tickets.map((ticket, index) => {
+    const listTicket = tickets.map((ticket) => {
         return (
             <tr
                 className={styles.user_order_row}
-                key={index}
+                key={ticket.TicketNo}
                 onClick={() => {
-                    onClick(index);
+                    onClick(ticket.TicketNo);
                 }}
             >
                 <td>{ticket.TicketNo}</td>
