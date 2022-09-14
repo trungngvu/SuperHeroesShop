@@ -4,10 +4,22 @@ import Signup from '../Home/Signup/signup';
 import React, { useState } from 'react';
 function DefaultLayout({ children }) {
     const [modals, setModals] = useState(false);
+    const [out, setOut] = useState(false);
+    const [isLoggedIn, setIsLoggedin] = useState(false);
 
     const signup = (click) => {
-        setModals(click); 
+        setModals(click);
     };
+
+    const closed = () => {
+        setOut(true);
+        setTimeout(() => {
+            setModals(false);
+            setOut(false);
+        }, 600);
+    };
+
+    console.log('is log in?' ,isLoggedIn);
 
     return (
         <>
@@ -18,7 +30,7 @@ function DefaultLayout({ children }) {
                 </div>
                 <Footer />
             </div>
-            {modals && <Signup onclick={signup} />}
+            {modals && <Signup onclick={closed} out={out} register={() => {setIsLoggedin(true)}} />}
         </>
     );
 }

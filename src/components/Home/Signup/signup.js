@@ -1,10 +1,15 @@
 import classNames from 'classnames/bind';
 import styles from './signup.module.scss';
 const cx = classNames.bind(styles);
-function Signup({ onclick, out }) {
+function Signup({ onclick, out , register}) {
+    const ani = () => {
+        if (out) return styles.modal_container + ' ' + styles.modal_container_out;
+        else return styles.modal_container;
+    };
+
     return (
         <div className={cx('modal', 'js-modal')}>
-            <div className={out ? styles.modal_container_out : styles.modal_container}>
+            <div className={ani()}>
                 <i onClick={() => onclick(false)} className={cx('button_close', 'fa-solid fa-xmark')}></i>
                 <div className={cx('modal_container-body')}>
                     <h1 className={cx('modal_container-title')}>Signup</h1>
@@ -25,7 +30,7 @@ function Signup({ onclick, out }) {
                     </div>
                     <input className={cx('modal_input')} type="text" placeholder="E-mail" />
                     <input className={cx('modal_input')} type="text" placeholder="Password" />
-                    <button className={cx('modal_button', 'modal_input', 'js-modal_button')}>Register</button>
+                    <button onClick={register} className={cx('modal_button', 'modal_input', 'js-modal_button')}>Register</button>
                     <div className={cx('check_box')}>
                         <input type="checkbox" />
                         <span className={cx('check_box-content')}>
