@@ -62,15 +62,11 @@ function Profile() {
         },
     ]);
 
-<<<<<<< HEAD
-    const ticketClickHandler = (index) => {};
-=======
     const [ticketDetail, setTicketDetail] = useState('');
 
     const ticketClickHandler = (index) => {
         setTicketDetail(index);
     };
->>>>>>> 672267258e08614087efb23b4ba3c719b15aa12e
 
     return (
         <>
