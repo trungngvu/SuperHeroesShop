@@ -1,5 +1,4 @@
 import styles from './film.module.scss';
-import { Image } from 'react-native';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 function Films({ films }) {

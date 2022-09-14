@@ -77,15 +77,15 @@ function Home() {
     const [times, setTimes] = useState(timeComing);
     const [chars, setChar] = useState(characters);
 
-    const Displayfilm = () => {
-        useState(films);
-    };
-    const Displaytime = () => {
-        useState(times);
-    };
-    const Displaychar = () => {
-        useState(chars);
-    };
+    // const Displayfilm = () => {
+    //     useState(films);
+    // };
+    // const Displaytime = () => {
+    //     useState(times);
+    // };
+    // const Displaychar = () => {
+    //     useState(chars);
+    // };
     return (
         <>
             <Sliders />,

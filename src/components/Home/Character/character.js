@@ -1,5 +1,4 @@
 import styles from './character.module.scss';
-import { Image } from 'react-native';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 function Character({ chars }) {

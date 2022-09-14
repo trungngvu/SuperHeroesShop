@@ -1,7 +1,7 @@
 import styles from './header.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
-function Header() {
+function Header({ onclick }) {
     return (
         <header className={cx('header')}>
             <div className={cx('grid')}>
@@ -62,7 +62,12 @@ function Header() {
                                 fill="#C01918"
                             />
                         </svg>
-                        <a className={cx('navbar-login_button', 'navbar-login_button_signup')}>Signup</a>
+                        <a
+                            onClick={() => onclick(true)}
+                            className={cx('navbar-login_button', 'navbar-login_button_signup')}
+                        >
+                            Signup
+                        </a>
                     </div>
                 </div>
             </div>
