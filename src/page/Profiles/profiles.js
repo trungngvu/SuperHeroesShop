@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import User from '../../components/Profile/user/user';
 import Order from '../../components/Profile/order/order';
 import Address from '../../components/Profile/address/address';
+import Ticket from '../../components/Profile/ticket/ticket';
 
 function Profile() {
     const [user, setUser] = useState({
         name: 'Yoann TERUEL',
         id: '#1651651651465',
-        avatar: '../../../images/profile/teruel.jpg',
-        background: '../../../images/profile/background_teruel.jpg',
+        avatar: require('../../images/profile/teruel.jpg'),
+        background: require('../../images/profile/background_teruel.png'),
     });
 
     const [orders, setOrders] = useState([
@@ -42,6 +43,26 @@ function Profile() {
         },
     ]);
 
+    const [tickets, setTickets] = useState([
+        {
+            TicketNo: '1326546',
+            Object: '31 av.des Timbertines, 75000 Paris',
+            CreateAt: '05/31/22',
+        },
+        {
+            TicketNo: '1326546',
+            Object: '31 av.des Timbertines, 75000 Paris',
+            CreateAt: '05/31/22',
+        },
+        {
+            TicketNo: '1326546',
+            Object: '31 av.des Timbertines, 75000 Paris',
+            CreateAt: '05/31/22',
+        },
+    ]);
+
+    const ticketClickHandler = (index) => {};
+
     return (
         <>
             <nav style={{ height: '66.5px' }}></nav>
@@ -49,6 +70,7 @@ function Profile() {
             <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '150px' }}>
                 <Order orders={orders} />
                 <Address addresses={addresses} />
+                <Ticket tickets={tickets} onClick={ticketClickHandler} />
             </div>
         </>
     );
