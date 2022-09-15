@@ -19,18 +19,24 @@ function DefaultLayout({ children }) {
         }, 600);
     };
 
-    console.log('is log in?' ,isLoggedIn);
-
     return (
         <>
             <div className="wrapper">
-                <Header onclick={signup} />
+                <Header onclick={signup} isLoggedIn={isLoggedIn}/>
                 <div className="container">
                     <div className="content">{children}</div>
                 </div>
                 <Footer />
             </div>
-            {modals && <Signup onclick={closed} out={out} register={() => {setIsLoggedin(true)}} />}
+            {modals && (
+                <Signup
+                    onclick={closed}
+                    out={out}
+                    register={() => {
+                        setIsLoggedin(true);
+                    }}
+                />
+            )}
         </>
     );
 }
