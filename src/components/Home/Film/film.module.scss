@@ -9,19 +9,27 @@
 .grid_row {
     width: 100%;
     display: grid;
+    // flex-direction: row;
     grid-template-columns: 25% 25% 25% 25% ;
     margin-left: -24px;
     margin-right: -24px;
     margin-top: 61px;
 }
 .grid_column {
-    padding-left: 24px;
-    padding-right: 24px;
+    // padding-left: 24px;
+    // padding-right: 24px;
 }
 // CONTSINER
-.category{ 
+.cat{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding-left: 24px;
-    padding-right: 24px;
+    padding-right: 24px;    
+}
+.category{ 
+   cursor: pointer;
 }
 .container-title {
     text-transform: uppercase;
@@ -37,7 +45,8 @@
 .category_img {
     border-radius: 35px;
     width: 100%;
-    height: 376px;
+    // height: 376px;
+    height: auto;
 }
 .catogory_rating {
     position: absolute;
@@ -63,7 +72,6 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 8px 0;
-    /* align-content: flex-end; */
 }
 .category_spoil-infor {
     font-size: 1.2rem;
@@ -81,4 +89,82 @@
     color: red;
     font-weight: 900;
     font-size: 1.2rem;
+}
+.cat:hover .cover {
+    display: block;
+}
+.cover {
+    width:100%;
+    color:#fff;
+    background-image: linear-gradient(to bottom ,#4D4D4D , #000000 );
+    opacity: 0.83;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 87%;
+    transform-origin: -50% 80%;
+    transform: translateX(-50%);
+    display: none;
+    animation: motionUI ease 0.5s;
+}
+.content {
+    font-size: 1.3rem;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-top: 20px;
+    margin-bottom: 36px;
+    opacity: 1;
+    
+}
+.category1_spoil { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 8px 0;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.category1_spoil-infor {
+    font-size: 1.2rem;
+}
+.category1_spoil-comment {
+    
+    align-items: flex-end;
+}
+.category1_spoil-price {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.category1_spoil-price > button {
+    margin-top: 5px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 12px;
+}
+.category1_spoil-price1 {
+    
+    color: red;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+.category1_spoil-price_button:hover {
+    opacity: 0.8;
+}
+@keyframes motionUI {
+    from {
+        scale: 0;
+        // opacity: 0;
+    }
+    to {
+        scale: 1;
+        // opacity: 1;
+    }
 }
