@@ -68,6 +68,12 @@ function Profile() {
         setTicketDetail(index);
     };
 
+    const findTicket = (no) => {
+        for (let i = 0; i < tickets.length; i++) {
+            if (tickets[i].TicketNo === no) return i;
+        }
+    };
+
     return (
         <>
             <nav style={{ height: '66.5px' }}></nav>
@@ -77,7 +83,7 @@ function Profile() {
                 <Address addresses={addresses} />
                 <Ticket tickets={tickets} onClick={ticketClickHandler} />
             </div>
-            {ticketDetail && <TicketClick ticketDetail={ticketDetail} setTicketDetail={setTicketDetail} />}
+            {ticketDetail && <TicketClick ticketDetail={tickets[findTicket(ticketDetail)]} setTicketDetail={setTicketDetail} />}
         </>
     );
 }
