@@ -7,9 +7,21 @@ function Signup({ onclick, out, register }) {
         else return styles.modal_container;
     };
 
+    let check = 0;
+
+    const clickin = () => {
+        check = 1;
+    };
+    const clickout = () => {
+        if ((check === 1)) check = 0;
+        else check = 2;
+        if ((check === 2)) onclick();
+    };
+
+
     return (
-        <div className={cx('modal')}>
-            <div className={ani()}>
+        <div onClick={clickout} className={cx('modal')}>
+            <div onClick={clickin} className={ani()}>
                 <i onClick={onclick} className={cx('button_close', 'fa-solid fa-xmark')}></i>
                 <div className={cx('modal_container-body')}>
                     <h1 className={cx('modal_container-title')}>Signup</h1>
@@ -30,7 +42,13 @@ function Signup({ onclick, out, register }) {
                     </div>
                     <input className={cx('modal_input')} type="text" placeholder="E-mail" />
                     <input className={cx('modal_input')} type="text" placeholder="Password" />
-                    <button onClick={() => {register(); onclick();}} className={cx('modal_button', 'modal_input', 'js-modal_button')}>
+                    <button
+                        onClick={() => {
+                            register();
+                            onclick();
+                        }}
+                        className={cx('modal_button', 'modal_input', 'js-modal_button')}
+                    >
                         Register
                     </button>
                     <div className={cx('check_box')}>

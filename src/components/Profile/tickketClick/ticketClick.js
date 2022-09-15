@@ -7,16 +7,12 @@ const ticketClickHandler = ({ ticketDetail, setTicketDetail }) => {
         <div className={st.modal}>
             <div className={st.ticket_wrapper}>
                 <img className={st.close_button} src={close} onClick={() => setTicketDetail('')} />
-                <div className={st.ticket_title}>Ticket n°1354646</div>
+                <div className={st.ticket_title}>Ticket n° {ticketDetail.TicketNo}</div>
                 <hr />
                 <div className={st.ticket_content}>
                     <div className={st.ticket_content_title}>Ticket subject</div>
                     <div className={st.ticket_object}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis eleifend porttitor.
-                        Aenean id bibendum justo. Sed commodo et orci eu finibus. Sed eget enim dui. Nunc consectetur
-                        libero leo, vitae mattis enim ultrices vel. Donec aliquet lorem in urna semper condimentum.
-                        Pellentesque molestie lorem et nulla efficitur commodo. Nulla augue quam, malesuada tempus
-                        porttitor quis, aliquam eget eros. Aenean sed commodo metus.
+                        {ticketDetail.Object}
                     </div>
                 </div>
                 <hr />
