@@ -4,9 +4,9 @@ import Login from './login/login';
 import Loggedin from './loggedin/loggedin';
 import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
-function Header({ onclick, isLoggedIn }) {
+function Header({ onclick, isLoggedIn, logout }) {
     const log = () => {
-        if (isLoggedIn) return <Loggedin />;
+        if (isLoggedIn) return <Loggedin logout={logout}/>;
         else return <Login onclick={onclick} />;
     };
 

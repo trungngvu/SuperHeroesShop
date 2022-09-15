@@ -2,7 +2,7 @@ import styles from './loggedin.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
-function Loggedin() {
+function Loggedin({logout}) {
     return (
         <div className={cx('navbar-login')}>
             <div className={cx('navbar-login_cart')}>
@@ -17,7 +17,15 @@ function Loggedin() {
                     src={require('../../../../../images/profile/teruel.jpg')}
                 />
             </Link>
-            <i className={cx('navbar-login_icon', 'fa-solid fa-chevron-down')}></i>
+            <div className={cx('dropdown')}>
+                <i className={cx('navbar-login_icon', 'fa-solid fa-chevron-down')}></i>
+                <ul class={cx('dropdown-content')}>
+                    <Link to="/profile" style={{ textDecoration: 'none'}}>
+                        <li className={cx('content')}>Profile</li>
+                    </Link>
+                    <li onClick={logout} className={cx('content')} style={{color: 'red'}}>Logout</li>
+                </ul>
+            </div>
         </div>
     );
 }

@@ -18,11 +18,14 @@ function DefaultLayout({ children }) {
             setOut(false);
         }, 600);
     };
-
+    
+    const logout = () =>{
+        setIsLoggedin(false);
+    }
     return (
         <>
             <div className="wrapper">
-                <Header onclick={signup} isLoggedIn={isLoggedIn}/>
+                <Header onclick={signup} isLoggedIn={isLoggedIn} logout={logout} />
                 <div className="container">
                     <div className="content">{children}</div>
                 </div>

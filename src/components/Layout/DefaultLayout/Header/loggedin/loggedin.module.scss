@@ -5,9 +5,7 @@
     color: #fff;
     // height: 59px;
 }
-.navbar-login_cart {
-    // padding: 0 14px;
-}
+
 .navbar-login_cart_icon {
     position: relative;
     font-size: 2rem;
@@ -15,16 +13,14 @@
     cursor: pointer;
     // cursor: pointer;
 }
-.navbar-login_cart_amount{
+.navbar-login_cart_amount {
     font-size: 1rem;
     padding: 3px;
-    background-color:#C01918;
-    position:absolute;
+    background-color: #c01918;
+    position: absolute;
     top: -5px;
     right: -4px;
     border-radius: 100%;
-     
-
 }
 .navbar-login_user {
     height: 41px;
@@ -38,4 +34,35 @@
 }
 .navbar-login_icon:hover {
     opacity: 0.6;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.dropdown-content,
+content:hover {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+    transform: translate(-60px);
+}
+
+.content {
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
