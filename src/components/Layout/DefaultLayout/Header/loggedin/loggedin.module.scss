@@ -1,0 +1,41 @@
+.navbar-login {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    color: #fff;
+    // height: 59px;
+}
+.navbar-login_cart {
+    // padding: 0 14px;
+}
+.navbar-login_cart_icon {
+    position: relative;
+    font-size: 2rem;
+    margin-right: 20px;
+    cursor: pointer;
+    // cursor: pointer;
+}
+.navbar-login_cart_amount{
+    font-size: 1rem;
+    padding: 3px;
+    background-color:#C01918;
+    position:absolute;
+    top: -5px;
+    right: -4px;
+    border-radius: 100%;
+     
+
+}
+.navbar-login_user {
+    height: 41px;
+    width: 41px;
+    border-radius: 100%;
+    margin-right: 14px;
+    cursor: pointer;
+}
+.navbar-login_icon {
+    cursor: pointer;
+}
+.navbar-login_icon:hover {
+    opacity: 0.6;
+}
