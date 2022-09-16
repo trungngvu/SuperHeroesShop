@@ -1,11 +1,17 @@
 import Header from './DefaultLayout/Header/header';
 import Footer from './DefaultLayout/Footer/footer';
 import Signup from '../Home/Signup/signup';
-import React, { useState } from 'react';
-function DefaultLayout({ children }) {
+import React, { useState, useEffect } from 'react';
+function DefaultLayout({ children, logged }) {
     const [modals, setModals] = useState(false);
     const [out, setOut] = useState(false);
     const [isLoggedIn, setIsLoggedin] = useState(false);
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            logged(true);
+        } else logged(false);
+    }, [isLoggedIn]);
 
     const signup = (click) => {
         setModals(click);
@@ -18,10 +24,11 @@ function DefaultLayout({ children }) {
             setOut(false);
         }, 600);
     };
-    
-    const logout = () =>{
+
+    const logout = () => {
         setIsLoggedin(false);
-    }
+    };
+
     return (
         <>
             <div className="wrapper">

@@ -10,10 +10,11 @@ const publicRoutes = [
         path: '/comic',
         component: Comics,
     },
+];
+const privateRoutes = [
     {
         path: '/profile',
         component: Profile,
     },
 ];
-const privateRoutes = [];
 export { publicRoutes, privateRoutes };
