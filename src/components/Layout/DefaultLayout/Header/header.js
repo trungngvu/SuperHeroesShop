@@ -21,13 +21,15 @@ function Header({ onclick, isLoggedIn, logout }) {
                     </Link>
                     <ul className={cx('navbar-item-menu')}>
                         <li className={cx('navbar-item')}>
-                            <a className={cx('navber-item_links')}>News</a>
+                            <div className={cx('navber-item_links')}>News</div>
                         </li>
+                        <Link to="/comic">
+                            <li className={cx('navbar-item')}>
+                                <div className={cx('navber-item_links')}>Series</div>
+                            </li>
+                        </Link>
                         <li className={cx('navbar-item')}>
-                            <a className={cx('navber-item_links')}>Series</a>
-                        </li>
-                        <li className={cx('navbar-item')}>
-                            <a className={cx('navber-item_links')}>Characters</a>
+                            <div className={cx('navber-item_links')}>Characters</div>
                         </li>
                     </ul>
                     {log()}
