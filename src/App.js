@@ -6,11 +6,10 @@ import Scrolltotop from './components/scrolltotop/scrolltotop';
 import { Fragment, useState } from 'react';
 
 function App() {
-    const [isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(localStorage.getItem('isLoggedin') === 'true');
 
     const auth = (c) => {
-        if (c) setIsAuth(true);
-        else setIsAuth(false);
+        setIsAuth(c);
     };
 
     const CheckAuth = ({ children }) => {
