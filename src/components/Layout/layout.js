@@ -5,13 +5,11 @@ import React, { useState, useEffect } from 'react';
 function DefaultLayout({ children, logged }) {
     const [modals, setModals] = useState(false);
     const [out, setOut] = useState(false);
-    const [isLoggedIn, setIsLoggedin] = useState(false);
+    const [isLoggedIn, setIsLoggedin] = useState(localStorage.getItem('isLoggedin') === 'true');
 
     useEffect(() => {
-        if (isLoggedIn) {
-            logged(true);
-        } else logged(false);
-    }, [isLoggedIn]);
+        logged(isLoggedIn);
+    });
 
     const signup = (click) => {
         setModals(click);
@@ -27,6 +25,7 @@ function DefaultLayout({ children, logged }) {
 
     const logout = () => {
         setIsLoggedin(false);
+        localStorage.setItem('isLoggedin', false);
     };
 
     return (
@@ -44,6 +43,7 @@ function DefaultLayout({ children, logged }) {
                     out={out}
                     register={() => {
                         setIsLoggedin(true);
+                        localStorage.setItem('isLoggedin', true);
                     }}
                 />
             )}
