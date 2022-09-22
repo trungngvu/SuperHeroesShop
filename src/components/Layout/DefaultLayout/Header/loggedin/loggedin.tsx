@@ -1,8 +1,14 @@
 import styles from './loggedin.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import React from 'react';
 const cx = classNames.bind(styles);
-function Loggedin({ logout }) {
+
+type Props = {
+    logout: () => void
+}
+
+function Loggedin({ logout }: Props) {
     return (
         <div className={cx('navbar-login')}>
             <div className={cx('navbar-login_cart')}>

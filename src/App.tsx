@@ -4,15 +4,18 @@ import { Navigate } from 'react-router-dom';
 import DefaultLayout from './components/Layout/layout';
 import Scrolltotop from './components/scrolltotop/scrolltotop';
 import { Fragment, useState } from 'react';
+import React from 'react';
 
 function App() {
     const [isAuth, setIsAuth] = useState(localStorage.getItem('isLoggedin') === 'true');
 
-    const auth = (c) => {
+    const auth = (c: boolean) => {
         setIsAuth(c);
     };
-
-    const CheckAuth = ({ children }) => {
+    type Props = {
+        children: any;
+    };
+    const CheckAuth = ({ children }: Props) => {
         if (isAuth) return children;
         return <Navigate to="/" />;
     };

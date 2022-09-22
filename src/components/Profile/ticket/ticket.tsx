@@ -1,7 +1,16 @@
 import React from 'react';
 import styles from './ticket.module.scss';
 
-const ticket = ({ tickets, onClick }) => {
+type Props = {
+    tickets: {
+        TicketNo: string,
+        Object: string,
+        CreateAt: string,
+    }[],
+    onClick: (No: string)=>void;
+}
+
+const ticket = ({ tickets, onClick }: Props) => {
     const listTicket = tickets.map((ticket) => {
         return (
             <tr

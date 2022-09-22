@@ -64,14 +64,15 @@ function Profile() {
 
     const [ticketDetail, setTicketDetail] = useState('');
 
-    const ticketClickHandler = (index) => {
+    const ticketClickHandler = (index: string) => {
         setTicketDetail(index);
     };
 
-    const findTicket = (no) => {
+    const findTicket = (no: string) => {
         for (let i = 0; i < tickets.length; i++) {
             if (tickets[i].TicketNo === no) return i;
         }
+        return -1;
     };
 
     return (

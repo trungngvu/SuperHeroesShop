@@ -2,7 +2,13 @@ import Header from './DefaultLayout/Header/header';
 import Footer from './DefaultLayout/Footer/footer';
 import Signup from '../Home/Signup/signup';
 import React, { useState, useEffect } from 'react';
-function DefaultLayout({ children, logged }) {
+
+type Props = {
+    children: JSX.Element,
+    logged: (c: boolean)=>void,
+}
+
+function DefaultLayout({ children, logged }: Props) {
     const [modals, setModals] = useState(false);
     const [out, setOut] = useState(false);
     const [isLoggedIn, setIsLoggedin] = useState(localStorage.getItem('isLoggedin') === 'true');
@@ -11,7 +17,7 @@ function DefaultLayout({ children, logged }) {
         logged(isLoggedIn);
     });
 
-    const signup = (click) => {
+    const signup = (click: boolean) => {
         setModals(click);
     };
 
@@ -25,7 +31,7 @@ function DefaultLayout({ children, logged }) {
 
     const logout = () => {
         setIsLoggedin(false);
-        localStorage.setItem('isLoggedin', false);
+        localStorage.setItem('isLoggedin', 'false');
     };
 
     return (
@@ -43,7 +49,7 @@ function DefaultLayout({ children, logged }) {
                     out={out}
                     register={() => {
                         setIsLoggedin(true);
-                        localStorage.setItem('isLoggedin', true);
+                        localStorage.setItem('isLoggedin', 'true');
                     }}
                 />
             )}

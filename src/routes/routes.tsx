@@ -5,16 +5,19 @@ const publicRoutes = [
     {
         path: '/',
         component: Home,
+        layout: '',
     },
     {
         path: '/comic',
         component: Comics,
+        layout: '',
     },
 ];
 const privateRoutes = [
     {
         path: '/profile',
         component: Profile,
+        layout: '',
     },
 ];
 export { publicRoutes, privateRoutes };

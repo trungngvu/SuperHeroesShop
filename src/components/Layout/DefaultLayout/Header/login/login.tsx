@@ -1,7 +1,12 @@
 import styles from './login.module.scss';
 import classNames from 'classnames/bind';
+import React from 'react';
 const cx = classNames.bind(styles);
-function Login({ onclick }) {
+
+type Props = {
+    onclick: (e: boolean)=>void;
+}
+function Login({ onclick }: Props) {
     return (
         <div className={cx('navbar-login')}>
             <a className={cx('navbar-login_button', 'navbar-login_button_signin')}>Signin</a>

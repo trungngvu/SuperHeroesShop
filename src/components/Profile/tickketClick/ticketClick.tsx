@@ -2,7 +2,16 @@ import React from 'react';
 import st from './ticketClick.module.scss';
 import close from '../../../images/profile/close_button.svg';
 
-const ticketClickHandler = ({ ticketDetail, setTicketDetail }) => {
+type Props = {
+    ticketDetail: {
+        TicketNo: string;
+        Object: string;
+        CreateAt: string;
+    };
+    setTicketDetail: (s: string)=>void;
+};
+
+const ticketClickHandler = ({ ticketDetail, setTicketDetail }: Props) => {
     return (
         <div className={st.modal}>
             <div className={st.ticket_wrapper}>
@@ -11,9 +20,7 @@ const ticketClickHandler = ({ ticketDetail, setTicketDetail }) => {
                 <hr />
                 <div className={st.ticket_content}>
                     <div className={st.ticket_content_title}>Ticket subject</div>
-                    <div className={st.ticket_object}>
-                        {ticketDetail.Object}
-                    </div>
+                    <div className={st.ticket_object}>{ticketDetail.Object}</div>
                 </div>
                 <hr />
                 <div className={st.ticket_comment}>

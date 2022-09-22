@@ -1,7 +1,15 @@
 import classNames from 'classnames/bind';
+import React from 'react';
 import styles from './signup.module.scss';
 const cx = classNames.bind(styles);
-function Signup({ onclick, out, register }) {
+
+interface signup {
+    onclick: ()=>void,
+    out: boolean,
+    register: ()=> void,
+}
+
+function Signup({ onclick, out, register }: signup) {
     const ani = () => {
         if (out) return styles.modal_container + ' ' + styles.modal_container_out;
         else return styles.modal_container;
@@ -14,8 +22,7 @@ function Signup({ onclick, out, register }) {
     };
     const clickout = () => {
         if ((check === 1)) check = 0;
-        else check = 2;
-        if ((check === 2)) onclick();
+        else onclick();
     };
 
 

@@ -2,7 +2,14 @@ import React from 'react';
 import styles from './address.module.scss';
 import Threedot from '../../../images/address/3dot.svg';
 
-const address = ({ addresses }) => {
+type Props = {
+    addresses: {
+        Recipient: string;
+        Address: string;
+        Phone: string;
+    }[];
+};
+const address = ({ addresses }: Props) => {
     const listAdresses = addresses.map((address, index) => {
         return (
             <div key={index} className={`${styles.box} ${styles.address_box}`}>

@@ -1,7 +1,17 @@
 import styles from './film.module.scss';
 import classNames from 'classnames/bind';
+import React from 'react';
 const cx = classNames.bind(styles);
-function Films({ films }) {
+type Props = {
+    films: {
+        image: string,
+        mark: number,
+        name: string,
+        comment: string,
+        price: string,
+    }[]
+}
+function Films({ films }: Props) {
     return (
         <div className={cx('app-container')}>
             <div className={cx('grid')}>

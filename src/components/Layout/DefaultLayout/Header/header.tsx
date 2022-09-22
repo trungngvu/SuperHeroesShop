@@ -3,9 +3,15 @@ import classNames from 'classnames/bind';
 import Login from './login/login';
 import Loggedin from './loggedin/loggedin';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 const cx = classNames.bind(styles);
-function Header({ onclick, isLoggedIn, logout }) {
+interface Props {
+    logout: () => void
+    onclick: (click: boolean) => void
+    isLoggedIn: boolean
+}
+function Header({ onclick, isLoggedIn, logout }: Props) {
     const log = () => {
         if (isLoggedIn) return <Loggedin logout={logout} />;
         else return <Login onclick={onclick} />;
