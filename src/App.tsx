@@ -13,7 +13,7 @@ function App() {
         setIsAuth(c);
     };
     type Props = {
-        children: any;
+        children: JSX.Element;
     };
     const CheckAuth = ({ children }: Props) => {
         if (isAuth) return children;
