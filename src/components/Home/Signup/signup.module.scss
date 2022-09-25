@@ -19,12 +19,12 @@
     background-color: #fff;
     display: flex;
     flex-direction: row;
-    cursor:auto;
+    cursor: auto;
     animation: modal_animation ease 0.7s;
 }
 
 .modal_container_out {
-    animation: modal_animation_out ease 0.7s
+    animation: modal_animation_out ease 0.7s;
 }
 .button_close {
     position: absolute;
@@ -35,13 +35,13 @@
     right: 0;
     color: #000;
 }
-.button_close:hover{
+.button_close:hover {
     opacity: 0.7;
 }
 .modal_container-foot {
     width: 50%;
     height: 100%;
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -59,20 +59,20 @@
 .modal_container-content {
     margin-top: 8px;
     text-align: center;
-    font-size: 1.2rem ;
+    font-size: 1.2rem;
     font-weight: 550;
 }
 .modal_container-link {
-    color:  #0093B4
+    color: #0093b4;
 }
 .modal_input {
     padding: 7px 10px;
     margin-left: 44px;
-    margin-right: 44px;
+    width: 80%;
     margin-top: 8px;
     border-radius: 14px;
-    border-style:solid;
-    border-color: #C4C4C4;
+    border-style: solid;
+    border-color: #c4c4c4;
     color: #000;
     font-weight: 500;
     outline: none;
@@ -82,14 +82,12 @@
     flex-direction: row;
 }
 .modal_input-name1 {
-    width: 50%;
     margin: 8px 1px 0 44px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 .modal_input-name2 {
-    width: 50%;
-    margin: 8px 44px 0 1px;
+    margin: 8px 7% 0 1px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -97,11 +95,11 @@
     margin-top: 8px;
     margin-bottom: 0;
     border: none;
-    background-color:#EE171F;
+    background-color: #ee171f;
     color: #fff;
     cursor: pointer;
 }
-.check_box{
+.check_box {
     padding-top: 8px;
     text-align: center;
     /* margin: auto; */
@@ -112,7 +110,7 @@
 }
 .check_box-content > a {
     text-decoration: none;
-    color: #0093B4;
+    color: #0093b4;
 }
 @keyframes modal_animation {
     from {
