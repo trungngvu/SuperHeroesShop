@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './signup.module.scss';
 const cx = classNames.bind(styles);
@@ -7,10 +7,31 @@ const cx = classNames.bind(styles);
 interface signup {
     onclick: () => void;
     out: boolean;
-    register: () => void;
+    login: () => void;
 }
 
-function Signup({ onclick, out, register }: signup) {
+function Signup({ onclick, out, login }: signup) {
+    const [formData, setFormData] = useState({});
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value.trim(),
+        });
+    };
+
+    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        axios
+            .post('https://632d1d290d7928c7d24518bd.mockapi.io/users', formData)
+            .then(() => {
+                console.log('POST success');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
     const ani = () => {
         if (out) return styles.modal_container + ' ' + styles.modal_container_out;
         else return styles.modal_container;
@@ -26,26 +47,6 @@ function Signup({ onclick, out, register }: signup) {
         else onclick();
     };
 
-    const sumbitForm = () => {
-        const person = {
-            name: 'Loren Hirthe',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/261.jpg',
-            background: 'http://loremflickr.com/640/480/fashion',
-        };
-        axios
-            .post('https://632d1d290d7928c7d24518bd.mockapi.io/users', person)
-            .then((response) => {
-                console.log(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
-
-    useEffect(() => {
-        sumbitForm();
-    }, []);
-
     return (
         <div onClick={clickout} className={cx('modal')}>
             <div onClick={clickin} className={ani()}>
@@ -53,31 +54,53 @@ function Signup({ onclick, out, register }: signup) {
                 <div className={cx('modal_container-body')}>
                     <h1 className={cx('modal_container-title')}>Signup</h1>
                     <span className={cx('modal_container-content')}>
-                        Already have an account?
-                        <a href="" className={cx('modal_container-link')}>
+                        <pre style={{ display: 'inline' }}>Already have an account? </pre>
+                        <span onClick={login} className={cx('modal_container-link')}>
                             Sign in
-                        </a>
+                        </span>
                     </span>
                     <form>
-                        <input className={cx('modal_input')} type="text" placeholder="Account" />
+                        <input
+                            name="name"
+                            onChange={handleChange}
+                            className={cx('modal_input')}
+                            type="text"
+                            placeholder="User name"
+                        />
                         <div className={cx('modal_container-body-name')}>
                             <input
                                 className={cx('modal_input', 'modal_input-name1')}
                                 type="text"
                                 placeholder="First name"
+                                name="firstName"
+                                onChange={handleChange}
                             />
                             <input
                                 className={cx('modal_input', 'modal_input-name2')}
                                 type="text"
                                 placeholder="Last name"
+                                name="lastname"
+                                onChange={handleChange}
                             />
                         </div>
-                        <input className={cx('modal_input')} type="text" placeholder="E-mail" />
-                        <input className={cx('modal_input')} type="text" placeholder="Password" />
+                        <input
+                            name="email"
+                            onChange={handleChange}
+                            className={cx('modal_input')}
+                            type="text"
+                            placeholder="E-mail"
+                        />
+                        <input
+                            name="password"
+                            onChange={handleChange}
+                            className={cx('modal_input')}
+                            type="text"
+                            placeholder="Password"
+                        />
                         <button
-                            onClick={() => {
-                                register();
+                            onClick={(e) => {
                                 onclick();
+                                handleSubmit(e);
                             }}
                             className={cx('modal_button', 'modal_input', 'js-modal_button')}
                         >
