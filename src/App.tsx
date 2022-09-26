@@ -6,17 +6,18 @@ import Scrolltotop from './components/scrolltotop/scrolltotop';
 import { Fragment, useState } from 'react';
 import React from 'react';
 
-function App() {
-    const [isAuth, setIsAuth] = useState(localStorage.getItem('isLoggedin') === 'true');
+const App: React.FC = () => {
+    const [userID, setUserID] = useState(localStorage.getItem('userID'));
 
-    const auth = (c: boolean) => {
-        setIsAuth(c);
+    const auth = (p: string) => {
+        localStorage.setItem('userID', p);
+        setUserID(localStorage.getItem('userID'));
     };
     type Props = {
         children: JSX.Element;
     };
     const CheckAuth = ({ children }: Props) => {
-        if (isAuth) return children;
+        if (userID!=='') return children;
         return <Navigate to="/" />;
     };
 
@@ -32,7 +33,7 @@ function App() {
                             key={index}
                             path={route.path}
                             element={
-                                <Layout logged={auth}>
+                                <Layout userID={userID} logged={auth}>
                                     <Page />
                                 </Layout>
                             }
@@ -47,7 +48,7 @@ function App() {
                             key={index}
                             path={route.path}
                             element={
-                                <Layout logged={auth}>
+                                <Layout userID={userID} logged={auth}>
                                     <CheckAuth>
                                         <Page />
                                     </CheckAuth>

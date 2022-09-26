@@ -7,13 +7,13 @@ import React from 'react';
 
 const cx = classNames.bind(styles);
 interface Props {
-    logout: () => void
-    onclick: (click: boolean) => void
-    isLoggedIn: boolean
+    logout: () => void;
+    onclick: (click: number) => void;
+    userID: string | null;
 }
-function Header({ onclick, isLoggedIn, logout }: Props) {
+function Header({ onclick, logout, userID }: Props) {
     const log = () => {
-        if (isLoggedIn) return <Loggedin logout={logout} />;
+        if (userID !== '') return <Loggedin logout={logout} />;
         else return <Login onclick={onclick} />;
     };
 

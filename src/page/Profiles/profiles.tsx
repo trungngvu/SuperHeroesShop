@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
-import User from '../../components/Profile/user/user';
+import React, { useState, useEffect } from 'react';
+import User, { PropsUser } from '../../components/Profile/user/user';
 import Order from '../../components/Profile/order/order';
 import Address from '../../components/Profile/address/address';
 import Ticket from '../../components/Profile/ticket/ticket';
 import TicketClick from '../../components/Profile/tickketClick/ticketClick';
+import axios from 'axios';
 
 function Profile() {
-    const [user, setUser] = useState({
-        name: 'Yoann TERUEL',
-        id: '#1651651651465',
-        avatar: require('../../images/profile/teruel.jpg'),
-        background: require('../../images/profile/background_teruel.png'),
-    });
+    const [user, setUser] = useState<PropsUser | null>(null);
+
+    const getData = async () => {
+        const data = await axios.get(
+            `https://632d1d290d7928c7d24518bd.mockapi.io/users/${localStorage.getItem('userID')}`,
+        );
+        setUser(data.data);
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
 
     const [orders, setOrders] = useState([
         {
@@ -78,13 +85,15 @@ function Profile() {
     return (
         <>
             <nav style={{ height: '66.5px' }}></nav>
-            <User avatar={user.avatar} background={user.background} name={user.name} id={user.id} />
+            {user && <User avatar={user.avatar} background={user.background} name={user.name} id={user.id} />}
             <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '150px' }}>
                 <Order orders={orders} />
                 <Address addresses={addresses} />
                 <Ticket tickets={tickets} onClick={ticketClickHandler} />
             </div>
-            {ticketDetail && <TicketClick ticketDetail={tickets[findTicket(ticketDetail)]} setTicketDetail={setTicketDetail} />}
+            {ticketDetail && (
+                <TicketClick ticketDetail={tickets[findTicket(ticketDetail)]} setTicketDetail={setTicketDetail} />
+            )}
         </>
     );
 }

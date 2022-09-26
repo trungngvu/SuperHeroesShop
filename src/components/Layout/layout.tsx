@@ -1,58 +1,70 @@
 import Header from './DefaultLayout/Header/header';
 import Footer from './DefaultLayout/Footer/footer';
 import Signup from '../Home/Signup/signup';
-import React, { useState, useEffect } from 'react';
+import Signin from '../Home/Signin/signin';
+import React, { useState} from 'react';
 
 type Props = {
-    children: JSX.Element,
-    logged: (c: boolean)=>void,
-}
+    children: JSX.Element;
+    logged: (p: string) => void;
+    userID: string|null;
+};
 
-function DefaultLayout({ children, logged }: Props) {
-    const [modals, setModals] = useState(false);
+function DefaultLayout({ children, logged, userID }: Props) {
+    const [modals, setModals] = useState(0);
     const [out, setOut] = useState(false);
-    const [isLoggedIn, setIsLoggedin] = useState(localStorage.getItem('isLoggedin') === 'true');
 
-    useEffect(() => {
-        logged(isLoggedIn);
-    });
-
-    const signup = (click: boolean) => {
+    const sign = (click: number) => {
         setModals(click);
     };
 
     const closed = () => {
         setOut(true);
         setTimeout(() => {
-            setModals(false);
+            setModals(0);
             setOut(false);
         }, 600);
     };
 
     const logout = () => {
-        setIsLoggedin(false);
-        localStorage.setItem('isLoggedin', 'false');
+        logged('');
+    };
+
+    const modal = () => {
+        if (modals === 1)
+            return (
+                <Signin
+                    onclick={closed}
+                    out={out}
+                    userID={logged}
+                    signup={() => {
+                        setModals(2);
+                    }}
+                />
+            );
+        if (modals === 2)
+            return (
+                <Signup
+                    onclick={closed}
+                    out={out}
+                    login={() => {
+                        setModals(1);
+                    }}
+                />
+            );
+        return;
     };
 
     return (
         <>
             <div className="wrapper">
-                <Header onclick={signup} isLoggedIn={isLoggedIn} logout={logout} />
+                <Header onclick={sign} logout={logout} userID={userID}/>
                 <div className="container">
                     <div className="content">{children}</div>
                 </div>
                 <Footer />
             </div>
-            {modals && (
-                <Signup
-                    onclick={closed}
-                    out={out}
-                    register={() => {
-                        setIsLoggedin(true);
-                        localStorage.setItem('isLoggedin', 'true');
-                    }}
-                />
-            )}
+            {modal()}
         </>
     );
 }

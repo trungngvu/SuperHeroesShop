@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './profile.module.scss';
 
-interface Props {
+export interface PropsUser {
     background: string;
     avatar: string;
     name: string;
     id: string;
 }
 
-const User = ({ background, avatar, name, id }: Props) => {
+const User = ({ background, avatar, name, id }: PropsUser) => {
     return (
         <>
             <img className={styles.background_cover} alt="background" src={background} />

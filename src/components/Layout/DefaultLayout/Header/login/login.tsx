@@ -4,12 +4,14 @@ import React from 'react';
 const cx = classNames.bind(styles);
 
 type Props = {
-    onclick: (e: boolean)=>void;
-}
+    onclick: (e: number) => void;
+};
 function Login({ onclick }: Props) {
     return (
         <div className={cx('navbar-login')}>
-            <a className={cx('navbar-login_button', 'navbar-login_button_signin')}>Signin</a>
+            <a onClick={() => onclick(1)} className={cx('navbar-login_button', 'navbar-login_button_signin')}>
+                Signin
+            </a>
             <svg
                 className={cx('navbar-login_img')}
                 width="39"
@@ -42,7 +44,7 @@ function Login({ onclick }: Props) {
                     fill="#C01918"
                 />
             </svg>
-            <a onClick={() => onclick(true)} className={cx('navbar-login_button', 'navbar-login_button_signup')}>
+            <a onClick={() => onclick(2)} className={cx('navbar-login_button', 'navbar-login_button_signup')}>
                 Signup
             </a>
         </div>
