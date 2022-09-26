@@ -10,7 +10,9 @@ function Profile() {
     const [user, setUser] = useState<PropsUser | null>(null);
 
     const getData = async () => {
-        const data = await axios.get('https://632d1d290d7928c7d24518bd.mockapi.io/users/3');
+        const data = await axios.get(
+            `https://632d1d290d7928c7d24518bd.mockapi.io/users/${localStorage.getItem('userID')}`,
+        );
         setUser(data.data);
     };
 

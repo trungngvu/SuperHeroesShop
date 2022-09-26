@@ -2,14 +2,15 @@ import Header from './DefaultLayout/Header/header';
 import Footer from './DefaultLayout/Footer/footer';
 import Signup from '../Home/Signup/signup';
 import Signin from '../Home/Signin/signin';
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 
 type Props = {
     children: JSX.Element;
-    logged: (c: boolean) => void;
+    logged: (p: string) => void;
+    userID: string|null;
 };
 
-function DefaultLayout({ children, logged }: Props) {
+function DefaultLayout({ children, logged, userID }: Props) {
     const [modals, setModals] = useState(0);
     const [out, setOut] = useState(false);
 
@@ -26,7 +27,7 @@ function DefaultLayout({ children, logged }: Props) {
     };
 
     const logout = () => {
-        localStorage.setItem('userID', '');
+        logged('');
     };
 
     const modal = () => {
@@ -35,6 +36,7 @@ function DefaultLayout({ children, logged }: Props) {
                 <Signin
                     onclick={closed}
                     out={out}
+                    userID={logged}
                     signup={() => {
                         setModals(2);
                     }}
@@ -56,7 +58,7 @@ function DefaultLayout({ children, logged }: Props) {
     return (
         <>
             <div className="wrapper">
-                <Header onclick={sign} logout={logout} />
+                <Header onclick={sign} logout={logout} userID={userID}/>
                 <div className="container">
                     <div className="content">{children}</div>
                 </div>

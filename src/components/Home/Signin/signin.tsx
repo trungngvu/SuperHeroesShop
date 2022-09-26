@@ -9,14 +9,16 @@ interface signin {
     onclick: () => void;
     out: boolean;
     signup: () => void;
+    userID: (p: string) => void;
 }
 
-function Signin({ onclick, out, signup }: signin) {
+function Signin({ onclick, out, signup, userID }: signin) {
     const [checkUser, setCheckUser] = useState<number>(-1);
 
     interface User extends PropsUser {
         password: string;
     }
+
     const [formData, setFormData] = useState<User>({
         background: '',
         avatar: '',
@@ -25,17 +27,10 @@ function Signin({ onclick, out, signup }: signin) {
         password: '',
     });
 
-    let data: User[];
-    useEffect(() => {
-        axios
-            .get('https://632d1d290d7928c7d24518bd.mockapi.io/users')
-            .then((res) => {
-                data = res.data;
-            })
-            .catch((err) => {
-                console.log('GET errr');
-            });
-    }, []);
+    const getData = async () => {
+        const data = await axios.get('https://632d1d290d7928c7d24518bd.mockapi.io/users');
+        return data.data;
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -44,13 +39,15 @@ function Signin({ onclick, out, signup }: signin) {
         });
     };
 
-    const checkname = (name: string, password: string, users: User[]) => {
+    const checkcre = (name: string, password: string, users: User[]) => {
         let check = 0;
         users.forEach((user) => {
-            console.log(user.name);
             if (user.name === name) {
                 check = 1;
-                if (user.password === password) return (check = 2);
+                if (user.password === password) {
+                    userID(user.id);
+                    return (check = 2);
+                }
             }
         });
         return check;
@@ -64,8 +61,11 @@ function Signin({ onclick, out, signup }: signin) {
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        setCheckUser(checkname(formData.name, formData.password, data));
-        if (checkUser === 2) onclick();
+        getData().then((data) => {
+            const check = checkcre(formData.name, formData.password, data);
+            setCheckUser(check);
+            if (check === 2) onclick();
+        });
     };
 
     const ani = () => {

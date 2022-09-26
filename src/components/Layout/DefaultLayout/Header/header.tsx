@@ -9,11 +9,11 @@ const cx = classNames.bind(styles);
 interface Props {
     logout: () => void;
     onclick: (click: number) => void;
+    userID: string | null;
 }
-function Header({ onclick, logout }: Props) {
+function Header({ onclick, logout, userID }: Props) {
     const log = () => {
-        const userID=localStorage.getItem('userID')
-        if (userID==='') return <Loggedin logout={logout} />;
+        if (userID !== '') return <Loggedin logout={logout} />;
         else return <Login onclick={onclick} />;
     };
 
