@@ -6,6 +6,10 @@ import Scrolltotop from './components/scrolltotop/scrolltotop';
 import { Fragment, useState } from 'react';
 import React from 'react';
 
+type Props = {
+    children: JSX.Element;
+};
+
 const App: React.FC = () => {
     const [userID, setUserID] = useState(localStorage.getItem('userID'));
 
@@ -13,9 +17,7 @@ const App: React.FC = () => {
         localStorage.setItem('userID', p);
         setUserID(localStorage.getItem('userID'));
     };
-    type Props = {
-        children: JSX.Element;
-    };
+    
     const CheckAuth = ({ children }: Props) => {
         if (userID!=='') return children;
         return <Navigate to="/" />;

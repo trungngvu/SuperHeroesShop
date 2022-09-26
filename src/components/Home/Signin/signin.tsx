@@ -113,8 +113,6 @@ function Signin({ onclick, out, signup, userID }: signin) {
                         />
                         <button
                             onClick={(e) => {
-                                // register();
-                                // onclick();
                                 handleSubmit(e);
                             }}
                             className={cx('modal_button', 'modal_input', 'js-modal_button')}
