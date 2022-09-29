@@ -1,8 +1,16 @@
 import styles from './time.module.scss';
-import { Image } from 'react-native';
 import classNames from 'classnames/bind';
+import React from 'react';
+
 const cx = classNames.bind(styles);
-function Times({ times }) {
+type Props = {
+    times: {
+        image: string;
+        time: string;
+        color: string;
+    }[];
+};
+function Times({ times }: Props) {
     return (
         <div className={cx('app-container')}>
             <div className={cx('grid')}>

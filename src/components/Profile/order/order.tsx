@@ -1,8 +1,16 @@
 import React from 'react';
 import styles from './order.module.scss';
 
-const order = ({ orders }) => {
-    const listOrder = orders.map((order,index) => {
+type Props = {
+    orders: {
+        OrderNo: string;
+        ShippingAt: string;
+        OrderMadeOn: string;
+    }[];
+};
+
+const order = ({ orders }: Props) => {
+    const listOrder = orders.map((order, index) => {
         return (
             <tr className={styles.user_order_row} key={index}>
                 <td>{order.OrderNo}</td>

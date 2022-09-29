@@ -1,8 +1,29 @@
 import styles from './loggedin.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { PropsUser } from '../../../../Profile/user/user';
+import React,{useState, useEffect} from 'react';
+import axios from 'axios';
 const cx = classNames.bind(styles);
-function Loggedin({ logout }) {
+
+type Props = {
+    logout: () => void
+}
+
+function Loggedin({ logout }: Props) {
+    const [user, setUser] = useState<PropsUser | null>(null);
+
+    const getData = async () => {
+        const data = await axios.get(
+            `https://632d1d290d7928c7d24518bd.mockapi.io/users/${localStorage.getItem('userID')}`,
+        );
+        setUser(data.data);
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
+
     return (
         <div className={cx('navbar-login')}>
             <div className={cx('navbar-login_cart')}>
@@ -14,7 +35,7 @@ function Loggedin({ logout }) {
                 <img
                     className={cx('navbar-login_user')}
                     alt=""
-                    src={require('../../../../../images/profile/teruel.jpg')}
+                    src={user?.avatar}
                 />
             </Link>
             <div className={cx('dropdown')}>

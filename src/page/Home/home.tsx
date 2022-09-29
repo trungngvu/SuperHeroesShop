@@ -1,6 +1,7 @@
 import Sliders from '../../components/Home/Slider/slider';
 import React, { useState } from 'react';
 import Films from '../../components/Home/Film/film';
+import filmStyles from '../../components/Home/Film/film.module.scss';
 import Times from '../../components/Home/Time/time';
 import Character from '../../components/Home/Character/character';
 const products = [
@@ -9,28 +10,28 @@ const products = [
         mark: 4.5,
         name: 'Spiderman',
         comment: 'Mavel Comics',
-        price: '$ 17.00',
+        price: 17.00,
     },
     {
         image: require('../../images/home/cate2.png'),
         mark: 4.5,
         name: 'Avenger',
         comment: 'Mavel Comics',
-        price: '$ 17.00',
+        price: 17,
     },
     {
         image: require('../../images/home/cate3.png'),
         mark: 2.1,
         name: 'Guardian',
         comment: 'Mavel Comics',
-        price: '$ 15.00',
+        price: 15.00,
     },
     {
         image: require('../../images/home/cate4.png'),
         mark: 3.5,
         name: 'Hulk',
         comment: 'Mavel Comics',
-        price: '$ 16.00',
+        price: 16,
     },
 ];
 const timeComing = [
@@ -89,6 +90,7 @@ function Home() {
     return (
         <>
             <Sliders />,
+            <h1 className={filmStyles.container_title}>Latest releases</h1>
             <Films films={films} />
             <Times times={times} />
             <Character chars={characters} />

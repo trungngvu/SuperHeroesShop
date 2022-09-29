@@ -1,7 +1,15 @@
 import styles from './character.module.scss';
 import classNames from 'classnames/bind';
+import React from 'react';
+
 const cx = classNames.bind(styles);
-function Character({ chars }) {
+type Props = {
+    chars: {
+        image: string;
+        name: string;
+    }[];
+};
+function Character({ chars }: Props) {
     return (
         <div className={cx('app-container')}>
             <div className={cx('grid')}>

@@ -1,6 +1,6 @@
-import { Image } from 'react-native';
 import styles from './slider.module.scss';
 import classNames from 'classnames/bind';
+import React from 'react';
 const cx = classNames.bind(styles);
 function Sliders() {
     return (

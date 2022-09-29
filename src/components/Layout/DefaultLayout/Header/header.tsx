@@ -3,11 +3,17 @@ import classNames from 'classnames/bind';
 import Login from './login/login';
 import Loggedin from './loggedin/loggedin';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 const cx = classNames.bind(styles);
-function Header({ onclick, isLoggedIn, logout }) {
+interface Props {
+    logout: () => void;
+    onclick: (click: number) => void;
+    userID: string | null;
+}
+function Header({ onclick, logout, userID }: Props) {
     const log = () => {
-        if (isLoggedIn) return <Loggedin logout={logout} />;
+        if (userID !== '') return <Loggedin logout={logout} />;
         else return <Login onclick={onclick} />;
     };
 

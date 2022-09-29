@@ -4,16 +4,22 @@ import { Navigate } from 'react-router-dom';
 import DefaultLayout from './components/Layout/layout';
 import Scrolltotop from './components/scrolltotop/scrolltotop';
 import { Fragment, useState } from 'react';
+import React from 'react';
 
-function App() {
-    const [isAuth, setIsAuth] = useState(localStorage.getItem('isLoggedin') === 'true');
+type Props = {
+    children: JSX.Element;
+};
 
-    const auth = (c) => {
-        setIsAuth(c);
+const App: React.FC = () => {
+    const [userID, setUserID] = useState(localStorage.getItem('userID'));
+
+    const auth = (p: string) => {
+        localStorage.setItem('userID', p);
+        setUserID(localStorage.getItem('userID'));
     };
-
-    const CheckAuth = ({ children }) => {
-        if (isAuth) return children;
+    
+    const CheckAuth = ({ children }: Props) => {
+        if (userID!=='') return children;
         return <Navigate to="/" />;
     };
 
@@ -29,7 +35,7 @@ function App() {
                             key={index}
                             path={route.path}
                             element={
-                                <Layout logged={auth}>
+                                <Layout userID={userID} logged={auth}>
                                     <Page />
                                 </Layout>
                             }
@@ -44,7 +50,7 @@ function App() {
                             key={index}
                             path={route.path}
                             element={
-                                <Layout logged={auth}>
+                                <Layout userID={userID} logged={auth}>
                                     <CheckAuth>
                                         <Page />
                                     </CheckAuth>

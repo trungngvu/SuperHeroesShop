@@ -1,11 +1,20 @@
 import styles from './film.module.scss';
 import classNames from 'classnames/bind';
+import React from 'react';
 const cx = classNames.bind(styles);
-function Films({ films }) {
+type Props = {
+    films: {
+        image: string;
+        mark: number;
+        name: string;
+        comment: string;
+        price: number;
+    }[];
+};
+function Films({ films }: Props) {
     return (
         <div className={cx('app-container')}>
             <div className={cx('grid')}>
-                <h1 className={cx('container-title')}>Latest releases</h1>
                 <div className={cx('grid_row')}>
                     {films.map((film, index) => (
                         <div key={index} className="grid_column">
@@ -24,7 +33,7 @@ function Films({ films }) {
                                             <p className={cx('category_spoil-comment')}>{film.comment}</p>
                                         </div>
                                         <div className={cx('category_spoil-price')}>
-                                            <span className={cx('category_spoil-price1')}>{film.price}</span>
+                                            <span className={cx('category_spoil-price1')}>{`$${film.price}`}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -40,7 +49,7 @@ function Films({ films }) {
                                             <p className={cx('category1_spoil-comment')}>{film.comment}</p>
                                         </div>
                                         <div className={cx('category1_spoil-price')}>
-                                            <span className={cx('category1_spoil-price1')}>{film.price}</span>
+                                            <span className={cx('category1_spoil-price1')}>{`$${film.price}`}</span>
                                             <button className={cx('category1_spoil-price_button')}>See details</button>
                                         </div>
                                     </div>
