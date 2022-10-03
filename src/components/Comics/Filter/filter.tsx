@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './filter.module.scss';
-import dropdown from '../../../images/comics/dropdown.svg'
+import dropdown from '../../../images/comics/dropdown.svg';
 
 const Filter = () => {
     return (
@@ -8,7 +8,6 @@ const Filter = () => {
             <div className={styles.filter_sort_flex}>
                 <div className={styles.filter_row}>
                     <p className={styles.filter_sort}>Filter by</p>
-
 
                     <div className={styles.flex_filter}>
                         <div className={styles.filter_by}>
