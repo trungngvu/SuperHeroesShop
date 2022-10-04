@@ -4,15 +4,13 @@ import Order from '../../components/Profile/order/order';
 import Address from '../../components/Profile/address/address';
 import Ticket from '../../components/Profile/ticket/ticket';
 import TicketClick from '../../components/Profile/tickketClick/ticketClick';
-import axios from 'axios';
+import axios from '../../Common/axios';
 
 function Profile() {
     const [user, setUser] = useState<PropsUser | null>(null);
 
     const getData = async () => {
-        const data = await axios.get(
-            `https://632d1d290d7928c7d24518bd.mockapi.io/users/${localStorage.getItem('userID')}`,
-        );
+        const data = await axios.get(`/users/${localStorage.getItem('userID')}`);
         setUser(data.data);
     };
 

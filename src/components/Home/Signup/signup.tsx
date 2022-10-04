@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../../Common/axios';
 import styles from './signup.module.scss';
 const cx = classNames.bind(styles);
 
@@ -23,7 +23,7 @@ function Signup({ onclick, out, login }: signup) {
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         axios
-            .post('https://632d1d290d7928c7d24518bd.mockapi.io/users', formData)
+            .post('/users', formData)
             .then(() => {
                 console.log('POST success');
             })

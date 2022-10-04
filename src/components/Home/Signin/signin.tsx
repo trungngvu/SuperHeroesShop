@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../../Common/axios';
 import styles from './signin.module.scss';
 import { PropsUser } from '../../../components/Profile/user/user';
 const cx = classNames.bind(styles);
@@ -28,7 +28,7 @@ function Signin({ onclick, out, signup, userID }: signin) {
     });
 
     const getData = async () => {
-        const data = await axios.get('https://632d1d290d7928c7d24518bd.mockapi.io/users');
+        const data = await axios.get('/users');
         return data.data;
     };
 

@@ -2,21 +2,19 @@ import styles from './loggedin.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { PropsUser } from '../../../../Profile/user/user';
-import React,{useState, useEffect} from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from '../../../../../Common/axios';
 const cx = classNames.bind(styles);
 
 type Props = {
-    logout: () => void
-}
+    logout: () => void;
+};
 
 function Loggedin({ logout }: Props) {
     const [user, setUser] = useState<PropsUser | null>(null);
 
     const getData = async () => {
-        const data = await axios.get(
-            `https://632d1d290d7928c7d24518bd.mockapi.io/users/${localStorage.getItem('userID')}`,
-        );
+        const data = await axios.get(`/users/${localStorage.getItem('userID')}`);
         setUser(data.data);
     };
 
@@ -32,11 +30,7 @@ function Loggedin({ logout }: Props) {
                 </i>
             </div>
             <Link to="/profile">
-                <img
-                    className={cx('navbar-login_user')}
-                    alt=""
-                    src={user?.avatar}
-                />
+                <img className={cx('navbar-login_user')} alt="" src={user?.avatar} />
             </Link>
             <div className={cx('dropdown')}>
                 <i className={cx('navbar-login_icon', 'fa-solid fa-chevron-down')}></i>
